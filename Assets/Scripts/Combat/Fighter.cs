@@ -10,7 +10,10 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float _weaponRange = 2f;
+        [SerializeField] float _timeBetweenAttack = 1f;
+
         Transform _target;
+        float _timeSinceLastAttack;
 
         // Start is called before the first frame update
         void Start()
@@ -21,6 +24,7 @@ namespace RPG.Combat
 
         void Update()
         {
+            _timeSinceLastAttack += Time.deltaTime;
             if (_target == null)
             {
                 return;
@@ -41,7 +45,12 @@ namespace RPG.Combat
 
         private void AttackBehaviour()
         {
-            GetComponent<Animator>().SetTrigger("attack");
+            if (_timeSinceLastAttack > _timeBetweenAttack)
+            {
+                GetComponent<Animator>().SetTrigger("attack");
+                _timeSinceLastAttack = 0;
+            }
+
         }
 
 
