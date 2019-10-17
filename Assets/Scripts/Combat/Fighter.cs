@@ -73,6 +73,16 @@ namespace Combat
             return Vector3.Distance(transform.position, _target.transform.position) < _weaponRange;
         }
 
+        public bool CanAttack(CombatTarget combatTarget)
+        {
+            if (combatTarget == null)
+            {
+                return false;
+            }
+
+            Health targgetToTest = combatTarget.GetComponent<Health>();
+            return targgetToTest != null && !targgetToTest.IsDead();
+        }
 
         public void Attack(CombatTarget combatTarget)
         {
