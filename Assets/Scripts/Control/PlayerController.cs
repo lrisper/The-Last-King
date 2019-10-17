@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Combat;
 using RPG.Movement;
 using UnityEngine;
 using RPG.Combat;

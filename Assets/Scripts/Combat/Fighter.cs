@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using RPG.Movement;
+﻿using RPG.Combat;
 using RPG.Core;
+using RPG.Movement;
+using UnityEngine;
 
-namespace RPG.Combat
+namespace Combat
 {
 
     public class Fighter : MonoBehaviour, IAction
