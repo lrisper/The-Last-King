@@ -6,14 +6,15 @@ namespace Combat
 
     public class Health : MonoBehaviour
     {
-        [SerializeField] private float healthPoints = 100f;
+        [SerializeField] private float _healthPoints = 100f;
 
-        bool isDead = false;
+        bool _isDead = false;
+        public bool IsDead() { return _isDead; }
 
         public void TakeDamage(float damage)
         {
-            healthPoints = Mathf.Max(healthPoints - damage, 0);
-            if (healthPoints == 0)
+            _healthPoints = Mathf.Max(_healthPoints - damage, 0);
+            if (_healthPoints == 0)
             {
                 Die();
             }
@@ -21,12 +22,12 @@ namespace Combat
 
         private void Die()
         {
-            if (isDead)
+            if (_isDead)
             {
                 return;
             }
 
-            isDead = true;
+            _isDead = true;
             GetComponent<Animator>().SetTrigger("die");
         }
     }

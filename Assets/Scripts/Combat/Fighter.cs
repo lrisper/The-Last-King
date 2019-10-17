@@ -12,7 +12,7 @@ namespace Combat
         [SerializeField] float _timeBetweenAttack = 1f;
         [SerializeField] float _weaponDamage = 5f;
 
-        Transform _target;
+        Health _target;
         float _timeSinceLastAttack;
 
         // Start is called before the first frame update
@@ -30,9 +30,14 @@ namespace Combat
                 return;
             }
 
+            if (_target.IsDead())
+            {
+                return;
+            }
+
             if (!GetIsInRange())
             {
-                GetComponent<Mover>().MoveTo(_target.position);
+                GetComponent<Mover>().MoveTo(_target.transform.position);
             }
             else
             {
@@ -56,26 +61,27 @@ namespace Combat
         // Animation event
         void Hit()
         {
-            Health healthComponent = _target.GetComponent<Health>();
-            healthComponent.TakeDamage(_weaponDamage);
+
+            _target.TakeDamage(_weaponDamage);
         }
 
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, _target.position) < _weaponRange;
+            return Vector3.Distance(transform.position, _target.transform.position) < _weaponRange;
         }
 
 
         public void Attack(CombatTarget combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            _target = combatTarget.transform;
+            _target = combatTarget.GetComponent<Health>();
         }
 
 
         public void Cancel()
         {
+            GetComponent<Animator>().SetTrigger("stopAttack");
             _target = null;
         }
 
