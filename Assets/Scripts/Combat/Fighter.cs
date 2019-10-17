@@ -13,7 +13,7 @@ namespace Combat
         [SerializeField] float _weaponDamage = 5f;
 
         Health _target;
-        float _timeSinceLastAttack;
+        float _timeSinceLastAttack = Mathf.Infinity;
 
         // Start is called before the first frame update
         void Start()

@@ -5,21 +5,29 @@ using Combat;
 using RPG.Movement;
 using UnityEngine;
 using RPG.Combat;
+using RPG.Core;
 
 namespace RPG.Control
 {
 
     public class PlayerController : MonoBehaviour
     {
-        // Start is called before the first frame update
+        Health _health;
+
+
         void Start()
         {
-
+            _health = GetComponent<Health>();
         }
 
 
         void Update()
         {
+            if (_health.IsDead())
+            {
+                return;
+            }
+
             if (InteractWithCombat()) { return; }
             if (InteractWithMovement()) { return; }
 

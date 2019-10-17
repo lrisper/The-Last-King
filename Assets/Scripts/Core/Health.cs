@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Combat
+namespace RPG.Core
 {
 
     public class Health : MonoBehaviour
@@ -14,7 +14,7 @@ namespace Combat
         public void TakeDamage(float damage)
         {
             _healthPoints = Mathf.Max(_healthPoints - damage, 0);
-            if (_healthPoints == 0)
+            if (_healthPoints < Mathf.Epsilon)
             {
                 Die();
             }
@@ -29,6 +29,7 @@ namespace Combat
 
             _isDead = true;
             GetComponent<Animator>().SetTrigger("die");
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
 }
