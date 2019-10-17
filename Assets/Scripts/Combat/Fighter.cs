@@ -55,14 +55,24 @@ namespace Combat
             if (_timeSinceLastAttack > _timeBetweenAttack)
             {
                 // This will trigger the Hit() event
-                GetComponent<Animator>().SetTrigger("attack");
+                TriggerAttack();
                 _timeSinceLastAttack = 0;
             }
+        }
+
+        private void TriggerAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("stopAttack");
+            GetComponent<Animator>().SetTrigger("attack");
         }
 
         // Animation event
         void Hit()
         {
+            if (_target == null)
+            {
+                return;
+            }
 
             _target.TakeDamage(_weaponDamage);
         }
@@ -93,10 +103,15 @@ namespace Combat
 
         public void Cancel()
         {
-            GetComponent<Animator>().SetTrigger("stopAttack");
+            StopAttack();
             _target = null;
         }
 
+        private void StopAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("attack");
+            GetComponent<Animator>().SetTrigger("stopAttack");
+        }
     }
 
 
