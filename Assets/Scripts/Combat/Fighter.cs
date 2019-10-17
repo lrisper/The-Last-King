@@ -50,6 +50,8 @@ namespace Combat
 
         private void AttackBehaviour()
         {
+            transform.LookAt(_target.transform);
+
             if (_timeSinceLastAttack > _timeBetweenAttack)
             {
                 // This will trigger the Hit() event
