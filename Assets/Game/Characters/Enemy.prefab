@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 35013590434203648, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
         type: 3}
-      propertyPath: health
+      propertyPath: healthPoints
       value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
