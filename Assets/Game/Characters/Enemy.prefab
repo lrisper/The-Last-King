@@ -26,6 +26,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chaseDistance: 5
   _suspicionTime: 5
+  _patrolPath: {fileID: 0}
+  _waypointTolerance: 1
+  _waypointDwellTime: 3
 --- !u!1001 &2308744681114644400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,6 +100,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 35013590434203648, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
+        type: 3}
+      propertyPath: _healthPoints
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f54e2e2d6a8403da0bbf8f7e34e108, type: 3}
