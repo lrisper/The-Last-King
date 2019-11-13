@@ -37,7 +37,7 @@ PrefabInstance:
     - target: {fileID: 7146202763754154887, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 41.60783
+      value: 32.87
       objectReference: {fileID: 0}
     - target: {fileID: 7146202763754154887, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
         type: 3}
@@ -88,6 +88,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _healthPoints
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140808028463728330, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f54e2e2d6a8403da0bbf8f7e34e108, type: 3}
