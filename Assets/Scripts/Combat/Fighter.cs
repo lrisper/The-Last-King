@@ -2,6 +2,7 @@
 using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Combat
 {
@@ -105,6 +106,8 @@ namespace Combat
         {
             StopAttack();
             _target = null;
+            GetComponent<Mover>().Cancel();
+
         }
 
         private void StopAttack()
