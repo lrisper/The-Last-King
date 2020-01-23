@@ -10,12 +10,12 @@ namespace RPG.Core
     public class PersistentObjectSpwner : MonoBehaviour
     {
 
-        [SerializeField] GameObject _persistentObjectPrefab;
+        [SerializeField] private GameObject _persistentObjectPrefab;
 
-        static bool _hasSpawned = false;
+        private static bool _hasSpawned = false;
 
         // Start is called before the first frame update
-        void Awake()
+        private void Awake()
         {
             if (_hasSpawned)
             {

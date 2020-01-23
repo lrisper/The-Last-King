@@ -12,10 +12,10 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour, IAction, ISaveable
     {
 
-        [SerializeField] Transform _target;
-        [SerializeField] float _maxSpeed = 6f;
-        NavMeshAgent _navMeshAgent;
-        Health _health;
+        [SerializeField] private Transform _target;
+        [SerializeField] private float _maxSpeed = 6f;
+        private NavMeshAgent _navMeshAgent;
+        private Health _health;
 
         public void Start()
         {
@@ -24,7 +24,7 @@ namespace RPG.Movement
         }
 
 
-        void Update()
+        private void Update()
         {
             _navMeshAgent.enabled = !_health.IsDead();
             UpdateAnimator();
@@ -61,7 +61,7 @@ namespace RPG.Movement
         }
 
         [System.Serializable]
-        struct MoverSaveData
+        private struct MoverSaveData
         {
             public SerializableVector3 position;
             public SerializableVector3 rotation;

@@ -11,22 +11,22 @@ namespace RPG.Control
 
     public class AIController : MonoBehaviour
     {
-        [SerializeField] float _chaseDistance = 5f;
-        [SerializeField] float _suspicionTime = 5f;
-        [SerializeField] PatrolPath _patrolPath;
-        [SerializeField] float _waypointTolerance = 1f;
-        [SerializeField] float _waypointDwellTime = 3f;
-        [Range(0, 1)] [SerializeField] float _potrolSpeedFraction = 0.2f;
+        [SerializeField] private float _chaseDistance = 5f;
+        [SerializeField] private float _suspicionTime = 5f;
+        [SerializeField] private PatrolPath _patrolPath;
+        [SerializeField] private float _waypointTolerance = 1f;
+        [SerializeField] private float _waypointDwellTime = 3f;
+        [Range(0, 1)] [SerializeField] private float _potrolSpeedFraction = 0.2f;
 
-        Fighter _fighter;
-        Health _health;
-        GameObject _player;
-        Mover _mover;
-        Vector3 _guardPosition;
+        private Fighter _fighter;
+        private Health _health;
+        private GameObject _player;
+        private Mover _mover;
+        private Vector3 _guardPosition;
 
-        float _timeSinceLastSawPlayer = Mathf.Infinity;
-        float _timeSinceArivedAtWaypoint = Mathf.Infinity;
-        int _currentWaypointIndex = 0;
+        private float _timeSinceLastSawPlayer = Mathf.Infinity;
+        private float _timeSinceArivedAtWaypoint = Mathf.Infinity;
+        private int _currentWaypointIndex = 0;
 
 
         public void Start()

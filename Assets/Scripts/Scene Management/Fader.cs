@@ -43,7 +43,7 @@ namespace RPG.SceneManagement
         }
 
 
-        IEnumerator FadeOutIn()
+        private IEnumerator FadeOutIn()
         {
             yield return FadeOut(3f);
             print("Faded out");

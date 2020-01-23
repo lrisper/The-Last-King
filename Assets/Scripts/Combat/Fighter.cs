@@ -1,4 +1,5 @@
-﻿using RPG.Core;
+﻿using System;
+using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -8,21 +9,22 @@ namespace RPG.Combat
 
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float _weaponRange = 2f;
-        [SerializeField] float _timeBetweenAttack = 1f;
-        [SerializeField] float _weaponDamage = 5f;
+        [SerializeField] private float _weaponRange = 2f;
+        [SerializeField] private float _timeBetweenAttack = 1f;
+        [SerializeField] private float _weaponDamage = 5f;
+        [SerializeField] private GameObject _weaponPrefab = null;
+        [SerializeField] private Transform _handTransform;
 
         Health _target;
         float _timeSinceLastAttack = Mathf.Infinity;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-
+            SpawnWeapon();
         }
 
-
-        void Update()
+        private void Update()
         {
             _timeSinceLastAttack += Time.deltaTime;
             if (_target == null)
@@ -47,6 +49,10 @@ namespace RPG.Combat
             }
         }
 
+        private void SpawnWeapon()
+        {
+            Instantiate(_weaponPrefab, _handTransform);
+        }
 
         private void AttackBehaviour()
         {
@@ -67,7 +73,7 @@ namespace RPG.Combat
         }
 
         // Animation event
-        void Hit()
+        private void Hit()
         {
             if (_target == null)
             {
@@ -76,7 +82,6 @@ namespace RPG.Combat
 
             _target.TakeDamage(_weaponDamage);
         }
-
 
         private bool GetIsInRange()
         {
@@ -100,7 +105,6 @@ namespace RPG.Combat
             _target = combatTarget.GetComponent<Health>();
         }
 
-
         public void Cancel()
         {
             StopAttack();
@@ -115,6 +119,5 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
     }
-
 
 }

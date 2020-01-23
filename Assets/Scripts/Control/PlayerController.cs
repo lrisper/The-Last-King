@@ -14,13 +14,13 @@ namespace RPG.Control
         Health _health;
 
 
-        void Start()
+        private void Start()
         {
             _health = GetComponent<Health>();
         }
 
 
-        void Update()
+        private void Update()
         {
             if (_health.IsDead())
             {
