@@ -29,6 +29,7 @@ MonoBehaviour:
   _patrolPath: {fileID: 0}
   _waypointTolerance: 1
   _waypointDwellTime: 3
+  _potrolSpeedFraction: 0.2
 --- !u!1001 &2308744681114644400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,16 +97,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 422298183701994724, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
-        type: 3}
-      propertyPath: m_Speed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 35013590434203648, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
         type: 3}
       propertyPath: _healthPoints
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 422298183701994724, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
+        type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 483250584415105270, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
+        type: 3}
+      propertyPath: _weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: cb9b696fef647426d8dd20ec585d42fc,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f54e2e2d6a8403da0bbf8f7e34e108, type: 3}
 --- !u!1 &2726369904938758994 stripped
