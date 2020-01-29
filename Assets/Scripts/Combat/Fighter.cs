@@ -20,7 +20,7 @@ namespace RPG.Combat
         // Start is called before the first frame update
         private void Start()
         {
-            SpawnWeapon();
+            EquipWeapon(_weapon);
         }
 
         private void Update()
@@ -48,7 +48,7 @@ namespace RPG.Combat
             }
         }
 
-        private void SpawnWeapon()
+        public void EquipWeapon(Weapon _weapon)
         {
             if (_weapon == null)
             {
