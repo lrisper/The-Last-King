@@ -11,7 +11,8 @@ namespace RPG.Combat
     {
 
         [SerializeField] private float _timeBetweenAttack = 1f;
-        [SerializeField] private Transform _handTransform;
+        [SerializeField] private Transform _rightHandTransform;
+        [SerializeField] private Transform _leftHandTransform;
         [SerializeField] private Weapon _weapon = null;
 
         Health _target;
@@ -55,7 +56,7 @@ namespace RPG.Combat
                 return;
             }
             Animator animator = GetComponent<Animator>();
-            _weapon.Spawn(_handTransform, animator);
+            _weapon.Spawn(_rightHandTransform, _leftHandTransform, animator);
         }
 
         private void AttackBehaviour()
