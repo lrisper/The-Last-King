@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeBetweenAttack: 1
-  _handTransform: {fileID: 7682195353359826266}
+  _rightHandTransform: {fileID: 7682195353359826266}
+  _leftHandTransform: {fileID: 7682195353359752498}
   _weapon: {fileID: 11400000, guid: cb9b696fef647426d8dd20ec585d42fc, type: 2}
 --- !u!114 &3940306015029522096
 MonoBehaviour:
@@ -264,6 +265,12 @@ PrefabInstance:
 --- !u!4 &7682195353359782340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435482, guid: 679ff741e12a7e740819ede24a7000b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7682195353359889630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7682195353359752498 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 403948, guid: 679ff741e12a7e740819ede24a7000b7,
     type: 3}
   m_PrefabInstance: {fileID: 7682195353359889630}
   m_PrefabAsset: {fileID: 0}

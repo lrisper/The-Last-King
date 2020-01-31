@@ -102,16 +102,6 @@ PrefabInstance:
       propertyPath: _healthPoints
       value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 483250584415105270, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
-        type: 3}
-      propertyPath: _rightHandTransform
-      value: 
-      objectReference: {fileID: 5374743750625071850}
-    - target: {fileID: 483250584415105270, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
-        type: 3}
-      propertyPath: _leftHandTransform
-      value: 
-      objectReference: {fileID: 5374743750625145474}
     - target: {fileID: 906763272363043034, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
         type: 3}
       propertyPath: uniqueIdentifier
@@ -127,18 +117,6 @@ PrefabInstance:
 --- !u!1 &2726369904938758994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 422298183701994722, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
-    type: 3}
-  m_PrefabInstance: {fileID: 2308744681114644400}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5374743750625145474 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7682195353359752498, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
-    type: 3}
-  m_PrefabInstance: {fileID: 2308744681114644400}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5374743750625071850 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7682195353359826266, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
     type: 3}
   m_PrefabInstance: {fileID: 2308744681114644400}
   m_PrefabAsset: {fileID: 0}

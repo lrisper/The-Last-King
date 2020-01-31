@@ -19,3 +19,5 @@ MonoBehaviour:
   _weaponRange: 10
   _weaponDamage: 7
   _isrightHanded: 0
+  _projectile: {fileID: 7751943376051599903, guid: 850e6b87fbbbb4721aa462a30b3a6cf5,
+    type: 3}

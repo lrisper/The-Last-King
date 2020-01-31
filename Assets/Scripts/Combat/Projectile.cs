@@ -1,33 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Core;
 
-public class Projectile : MonoBehaviour
+namespace RPG.Combat
 {
-
-    [SerializeField] Transform _target = null;
-    [SerializeField] float _speed = 1f;
-
-    [SerializeField] float _aimHeight = 2f;
-
-    // Update is called once per frame
-    void Update()
+    public class Projectile : MonoBehaviour
     {
-        if (_target == null)
-        {
-            return;
-        }
-        transform.LookAt(GetAimLocation());
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-    }
 
-    private Vector3 GetAimLocation()
-    {
-        CapsuleCollider targetcapsule = _target.GetComponent<CapsuleCollider>();
-        if (targetcapsule == null)
+        [SerializeField] float _speed = 1f;
+        [SerializeField] float _aimHeight = 2f;
+        Health _target = null;
+
+        // Update is called once per frame
+        void Update()
         {
-            return _target.position;
+            if (_target == null)
+            {
+                return;
+            }
+            transform.LookAt(GetAimLocation());
+            transform.Translate(Vector3.forward * _speed * Time.deltaTime);
         }
-        return _target.position + Vector3.up * targetcapsule.height / _aimHeight;
+
+        public void SetTarget(Health target)
+        {
+            this._target = target;
+        }
+
+        private Vector3 GetAimLocation()
+        {
+            CapsuleCollider targetcapsule = _target.GetComponent<CapsuleCollider>();
+            if (targetcapsule == null)
+            {
+                return _target.transform.position;
+            }
+            return _target.transform.position + Vector3.up * targetcapsule.height / _aimHeight;
+        }
     }
 }

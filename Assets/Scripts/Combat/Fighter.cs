@@ -15,8 +15,8 @@ namespace RPG.Combat
         [SerializeField] private Transform _leftHandTransform;
         [SerializeField] private Weapon _weapon = null;
 
-        Health _target;
-        float _timeSinceLastAttack = Mathf.Infinity;
+        private Health _target;
+        private float _timeSinceLastAttack = Mathf.Infinity;
 
         // Start is called before the first frame update
         private void Start()
@@ -85,7 +85,19 @@ namespace RPG.Combat
                 return;
             }
 
-            _target.TakeDamage(_weapon.GetDamage());
+            if (_weapon.HasProjectile())
+            {
+                _weapon.LunchProjectile(_rightHandTransform, _leftHandTransform, _target);
+            }
+            else
+            {
+                _target.TakeDamage(_weapon.GetDamage());
+            }
+        }
+
+        private void Shoot()
+        {
+            Hit();
         }
 
         private bool GetIsInRange()
