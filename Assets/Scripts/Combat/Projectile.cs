@@ -10,8 +10,14 @@ namespace RPG.Combat
 
         [SerializeField] float _speed = 1f;
         [SerializeField] float _aimHeight = 2f;
+        [SerializeField] bool _isHoming = true;
         Health _target = null;
         float _damage = 0;
+
+        private void Start()
+        {
+            transform.LookAt(GetAimLocation());
+        }
 
         // Update is called once per frame
         void Update()
@@ -20,7 +26,11 @@ namespace RPG.Combat
             {
                 return;
             }
-            transform.LookAt(GetAimLocation());
+            if (_isHoming && !_target.IsDead())
+            {
+                transform.LookAt(GetAimLocation());
+            }
+
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
         }
 
@@ -43,6 +53,11 @@ namespace RPG.Combat
         public void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<Health>() != _target)
+            {
+                return;
+            }
+
+            if (_target.IsDead())
             {
                 return;
             }
