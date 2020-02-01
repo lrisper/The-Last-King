@@ -69,6 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7751943376051599903, guid: 850e6b87fbbbb4721aa462a30b3a6cf5,
         type: 3}
+      propertyPath: _destroyOnHit.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7751943376051599903, guid: 850e6b87fbbbb4721aa462a30b3a6cf5,
+        type: 3}
       propertyPath: _isHoming
       value: 0
       objectReference: {fileID: 0}
@@ -78,6 +83,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6876164194089978028, guid: b117795b8b6e248e991a37a636dfefa8,
         type: 3}
+    - target: {fileID: 7751943376051599903, guid: 850e6b87fbbbb4721aa462a30b3a6cf5,
+        type: 3}
+      propertyPath: _destroyOnHit.Array.data[0]
+      value: 
+      objectReference: {fileID: 7086594358491517997}
     - target: {fileID: 2806404653662355844, guid: 850e6b87fbbbb4721aa462a30b3a6cf5,
         type: 3}
       propertyPath: m_IsTrigger
@@ -110,3 +120,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850e6b87fbbbb4721aa462a30b3a6cf5, type: 3}
+--- !u!1 &7086594358491517997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3719738640687929500, guid: 850e6b87fbbbb4721aa462a30b3a6cf5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5892835387139886257}
+  m_PrefabAsset: {fileID: 0}

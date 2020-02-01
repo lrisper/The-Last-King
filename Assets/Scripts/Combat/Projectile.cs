@@ -12,6 +12,9 @@ namespace RPG.Combat
         [SerializeField] private float _aimHeight = 2f;
         [SerializeField] private bool _isHoming = true;
         [SerializeField] private GameObject _hitEffect = null;
+        [SerializeField] private float _maxLifeTime = 10f;
+        [SerializeField] private GameObject[] _destroyOnHit = null;
+        [SerializeField] private float _lifeAfterImpact = 2f;
 
         private Health _target = null;
         private float _damage = 0;
@@ -40,6 +43,8 @@ namespace RPG.Combat
         {
             this._target = target;
             this._damage = damge;
+
+            Destroy(gameObject, _maxLifeTime);
         }
 
         private Vector3 GetAimLocation()
@@ -65,12 +70,19 @@ namespace RPG.Combat
             }
             _target.TakeDamage(_damage);
 
+            _speed = 0;
+
+            // todo fix fire ball prefab
             // todo make hit effect for all weapons 
             if (_hitEffect != null)
             {
                 Instantiate(_hitEffect, GetAimLocation(), transform.rotation);
             }
-            Destroy(gameObject);
+            foreach (GameObject toDestroy in _destroyOnHit)
+            {
+                Destroy(toDestroy);
+            }
+            Destroy(gameObject, _lifeAfterImpact);
         }
     }
 }

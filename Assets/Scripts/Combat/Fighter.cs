@@ -3,25 +3,32 @@ using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
 using UnityEngine.Networking;
+using RPG.Saving;
 
 namespace RPG.Combat
 {
 
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
 
         [SerializeField] private float _timeBetweenAttack = 1f;
         [SerializeField] private Transform _rightHandTransform;
         [SerializeField] private Transform _leftHandTransform;
-        [SerializeField] private Weapon _weapon = null;
+        [SerializeField] private Weapon _defaultWeapon = null;
+
 
         private Health _target;
         private float _timeSinceLastAttack = Mathf.Infinity;
+        private Weapon currentWeapon = null;
 
         // Start is called before the first frame update
         private void Start()
         {
-            EquipWeapon(_weapon);
+            if (currentWeapon == null)
+            {
+                EquipWeapon(_defaultWeapon);
+            }
+
         }
 
         private void Update()
@@ -85,13 +92,13 @@ namespace RPG.Combat
                 return;
             }
 
-            if (_weapon.HasProjectile())
+            if (_defaultWeapon.HasProjectile())
             {
-                _weapon.LunchProjectile(_rightHandTransform, _leftHandTransform, _target);
+                _defaultWeapon.LunchProjectile(_rightHandTransform, _leftHandTransform, _target);
             }
             else
             {
-                _target.TakeDamage(_weapon.GetDamage());
+                _target.TakeDamage(_defaultWeapon.GetDamage());
             }
         }
 
@@ -102,7 +109,7 @@ namespace RPG.Combat
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, _target.transform.position) < _weapon.GetRange();
+            return Vector3.Distance(transform.position, _target.transform.position) < _defaultWeapon.GetRange();
         }
 
         public bool CanAttack(GameObject combatTarget)
@@ -134,6 +141,18 @@ namespace RPG.Combat
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 
