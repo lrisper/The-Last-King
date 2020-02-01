@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Core;
+using System;
 
 namespace RPG.Combat
 {
@@ -18,17 +19,39 @@ namespace RPG.Combat
         [SerializeField] private bool _isrightHanded = true;
         [SerializeField] private Projectile _projectile = null;
 
+        private const string _weaponName = "Weapon";
 
         public void Spawn(Transform rightHandTransform, Transform leftHandTransform, Animator animator)
         {
-            Transform _handTransform;
-            _handTransform = GetTransform(rightHandTransform, leftHandTransform);
-            Instantiate(_equipedPrefab, _handTransform);
+            DestroyOldWeapon(rightHandTransform, leftHandTransform);
+
+            if (_equipedPrefab != null)
+            {
+                Transform _handTransform = GetTransform(rightHandTransform, leftHandTransform);
+                GameObject weapon = Instantiate(_equipedPrefab, _handTransform);
+                weapon.name = _weaponName;
+            }
 
             if (animator != null)
             {
                 animator.runtimeAnimatorController = _weaponOverrideController;
             }
+        }
+
+        private void DestroyOldWeapon(Transform rightHandTransform, Transform leftHandTransform)
+        {
+            Transform oldweapon = rightHandTransform.Find(_weaponName);
+            if (oldweapon == null)
+            {
+                oldweapon = leftHandTransform.Find(_weaponName);
+            }
+
+            if (oldweapon == null)
+            {
+                return;
+            }
+            oldweapon.name = "DESTROYING";
+            Destroy(oldweapon.gameObject);
         }
 
         private Transform GetTransform(Transform rightHandTransform, Transform leftHandTransform)
