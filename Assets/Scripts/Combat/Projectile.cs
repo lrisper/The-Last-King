@@ -8,11 +8,11 @@ namespace RPG.Combat
     public class Projectile : MonoBehaviour
     {
 
-        [SerializeField] float _speed = 1f;
-        [SerializeField] float _aimHeight = 2f;
-        [SerializeField] bool _isHoming = true;
-        Health _target = null;
-        float _damage = 0;
+        [SerializeField] private float _speed = 1f;
+        [SerializeField] private float _aimHeight = 2f;
+        [SerializeField] private bool _isHoming = true;
+        private Health _target = null;
+        private float _damage = 0;
 
         private void Start()
         {

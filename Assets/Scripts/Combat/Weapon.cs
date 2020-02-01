@@ -51,6 +51,7 @@ namespace RPG.Combat
                 return;
             }
             oldweapon.name = "DESTROYING";
+            Console.WriteLine("Destroying " + oldweapon.name);
             Destroy(oldweapon.gameObject);
         }
 
