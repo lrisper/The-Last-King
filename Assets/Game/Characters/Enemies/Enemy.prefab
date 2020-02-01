@@ -1,18 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5174673718042367100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2726369904938758994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54dd1de748cb249cb95729156fbc0790, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6878699071643813117
+--- !u!114 &8540133941866923189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24,12 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9988a4862bf8842d597df1899a686a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaseDistance: 4.36
+  _chaseDistance: 5
   _suspicionTime: 5
   _patrolPath: {fileID: 0}
   _waypointTolerance: 1
   _waypointDwellTime: 3
   _potrolSpeedFraction: 0.2
+--- !u!114 &1787012559851903328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726369904938758994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54dd1de748cb249cb95729156fbc0790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2308744681114644400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,14 +105,19 @@ PrefabInstance:
     - target: {fileID: 906763272363043034, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
         type: 3}
       propertyPath: uniqueIdentifier
-      value: 6391c013-71ce-4f4e-b8cc-726aa09cf368
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 422298183701994724, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
+    - target: {fileID: 1880100287, guid: 70f54e2e2d6a8403da0bbf8f7e34e108, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534746716671762046, guid: 70f54e2e2d6a8403da0bbf8f7e34e108,
         type: 3}
-      propertyPath: m_Speed
-      value: 3
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1880100287, guid: 70f54e2e2d6a8403da0bbf8f7e34e108, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 70f54e2e2d6a8403da0bbf8f7e34e108, type: 3}
 --- !u!1 &2726369904938758994 stripped
 GameObject:

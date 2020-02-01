@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17d189b623cdf41b38bfb534a21dfaeb, type: 3}
-  m_Name: Unarmed
+  m_Name: Bow Red Projectiles
   m_EditorClassIdentifier: 
-  _weaponOverrideController: {fileID: 22100000, guid: 44cb5f37f572d422db96ec6b4eab3e63,
+  _weaponOverrideController: {fileID: 22100000, guid: 620c507ffce504e07bc2d17289a70d61,
     type: 2}
-  _equipedPrefab: {fileID: 3474257965778312606, guid: 7276f55d41cde4ea5961a163b7fef28c,
+  _equipedPrefab: {fileID: 215751137425105731, guid: 50d4c372f50ad4492a583771c5585dd6,
     type: 3}
-  _weaponRange: 2
-  _weaponDamage: 2
+  _weaponRange: 10
+  _weaponDamage: 7
   _isrightHanded: 0
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 4202951358072780462, guid: ccd2341d1333e4aa08dcf4fd84ae7627,
+    type: 3}
