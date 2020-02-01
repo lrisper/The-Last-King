@@ -4804,6 +4804,8 @@ MonoBehaviour:
   _speed: 6
   _aimHeight: 2
   _isHoming: 1
+  _hitEffect: {fileID: 6876164194089978028, guid: b117795b8b6e248e991a37a636dfefa8,
+    type: 3}
 --- !u!65 &2806404653662355844
 BoxCollider:
   m_ObjectHideFlags: 0

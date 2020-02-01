@@ -153,6 +153,12 @@ PrefabInstance:
       propertyPath: _speed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7751943376051599903, guid: 850e6b87fbbbb4721aa462a30b3a6cf5,
+        type: 3}
+      propertyPath: _hitEffect
+      value: 
+      objectReference: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db,
+        type: 3}
     - target: {fileID: 2806404653662355844, guid: 850e6b87fbbbb4721aa462a30b3a6cf5,
         type: 3}
       propertyPath: m_Size.x

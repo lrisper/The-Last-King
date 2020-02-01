@@ -11,6 +11,8 @@ namespace RPG.Combat
         [SerializeField] private float _speed = 1f;
         [SerializeField] private float _aimHeight = 2f;
         [SerializeField] private bool _isHoming = true;
+        [SerializeField] private GameObject _hitEffect = null;
+
         private Health _target = null;
         private float _damage = 0;
 
@@ -62,6 +64,12 @@ namespace RPG.Combat
                 return;
             }
             _target.TakeDamage(_damage);
+
+            // todo make hit effect for all weapons 
+            if (_hitEffect != null)
+            {
+                Instantiate(_hitEffect, GetAimLocation(), transform.rotation);
+            }
             Destroy(gameObject);
         }
     }
